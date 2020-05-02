@@ -98,5 +98,26 @@ public class SortSample2 {
         System.out.println(Arrays.toString(sortedList3.toArray()));
     }
 
+    @Test
+    public void String_List_역순_정렬(){
+        List<String> list = Arrays.asList("1", "2", "3", "A", "B", "C", "a", "b", "c");
+
+        List<String> sortedList = list.stream()
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.toList());
+
+        //[c, b, a, C, B, A, 3, 2, 1]
+        System.out.println(Arrays.toString(sortedList.toArray()));
+
+        List<String> sortedList1 = list.stream()
+                .sorted((o1,o2)-> o2.compareTo(o1))
+                .collect(Collectors.toList());
+
+        //[c, b, a, C, B, A, 3, 2, 1]
+        System.out.println(Arrays.toString(sortedList1.toArray()));
+    }
+
+
 
 }
+
